@@ -6,42 +6,43 @@ const projectSchema = new mongoose.Schema(
       type: String,
       required: true,
       unique: true,
-      trim: true
+      trim: true,
     },
     description: {
       type: String,
-      required: true
+      required: true,
     },
     owner: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User',
-        required: true
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+      required: true,
     },
-    freelancer: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User',
-        required: true
-    },
+    freelancer: [{
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+      required: true,
+    }],
     budget: {
-        type: Number,
-        required: true,
+      type: Number,
+      required: true,
     },
-    startDate: { 
-        type: Date,
-        required: true
+    startDate: {
+      type: Date,
+      required: true,
     },
     endDate: {
-        type: Date,
-        required: true
+      type: Date,
+      required: true,
     },
     status: {
-        type: String,
-        required: true
-    }
+      type: String,
+      required: true,
+      enum: ["pending", "in progress", "completed"],
+      default: "pending",
+    },
   },
   { timestamps: true },
 );
-
 
 const Project = mongoose.model("Project", projectSchema);
 

@@ -7,28 +7,34 @@ const userSchema = new mongoose.Schema(
       required: true,
       unique: true,
       trim: true,
-      lowercase:true
+      lowercase: true,
     },
     hashedPassword: {
       type: String,
-      required: true
+      required: true,
     },
     email: {
       type: String,
       required: true,
-      trim: true
+      trim: true,
     },
     phone: {
       type: String,
       required: true,
       trim: true,
-      length: 8
+      length: 8,
     },
     role: {
       type: String,
       required: true,
-      enum: ["client", "freelancer", "admin"]
-    }
+      enum: ["client", "freelancer", "admin"],
+    },
+    status: {
+      type: String,
+      required: true,
+      enum: ["active", "inactive"],
+      default: "active",
+    },
   },
   { timestamps: true },
 );
