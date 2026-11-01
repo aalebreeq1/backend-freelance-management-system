@@ -10,7 +10,7 @@ const invoiceSchema = new mongoose.Schema({
                 ref:"Project",
                 required:true
     },
-    amount:{
+    amount:{ 
         type:Number,
         required:true
     },
@@ -32,5 +32,5 @@ const invoiceSchema = new mongoose.Schema({
 
 
 
-const Invoice= mongoose.model("Inovice", invoiceSchema)
+const Invoice= mongoose.model("Invoice", invoiceSchema)
 module.exports= Invoice;
