@@ -17,11 +17,13 @@ const projectSchema = new mongoose.Schema(
       ref: "User",
       required: true,
     },
-    freelancer: [{
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "User",
-      required: true,
-    }],
+    freelancer: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User",
+        required: true,
+      },
+    ],
     budget: {
       type: Number,
       required: true,
@@ -37,7 +39,13 @@ const projectSchema = new mongoose.Schema(
     status: {
       type: String,
       required: true,
-      enum: ["pending", "in progress", "completed"],
+      enum: [
+        "pending",
+        "in progress",
+        "completed",
+        "cancelled",
+        "rejected by admin",
+      ],
       default: "pending",
     },
   },
