@@ -13,6 +13,22 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: true
     },
+    email: {
+      type: String,
+      required: true,
+      trim: true
+    },
+    phone: {
+      type: String,
+      required: true,
+      trim: true,
+      length: 8
+    },
+    role: {
+      type: String,
+      required: true,
+      enum: ["client", "freelancer", "admin"]
+    }
   },
   { timestamps: true },
 );
